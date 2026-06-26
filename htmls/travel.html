@@ -8,6 +8,10 @@
     <link rel="icon" href="img/logotipo.png">
 </head>
 <body class="fondoestrellas">
+    <div class="loader">
+        <img src="../img/loading.jpeg" alt="Pantalla de carga">
+    </div>
+    <div><a href="/htmls/home.html"><p class="atras">></p></a></div>
     <!--- botones de planeta -->
     <div class="planetas">
         <button class="planeta-activo">
@@ -20,20 +24,106 @@
     </div>
     <!-- muestra de planetas y ruta espacial-->
      <div class="mapa">
-        <img src="https://media.tenor.com/CKA21kCjN3QAAAAi/ali-yalniz-world-is-spinning.gif" alt="Descripción del GIF" width="300">
+    
+    <!-- Imagen Planeta Tierra-->
+    <div class="viajerr">
+        <img src="../img/descarga.png" alt="Pantalla de carga">
+    </div>
+        <img src="https://media.tenor.com/CKA21kCjN3QAAAAi/ali-yalniz-world-is-spinning.gif" alt="tierra" width="400" class="tierra">
+
     <!-- ruta espacial -->
         <svg class="ruta" viewBox="0 0 500 200">
 
            <path 
               d=" M50 150 Q250 20 450 70"
               stroke="white"
-              stroke-width="4"
-              stroke-dasharray="12 12"
+              stroke-width="2"
+              stroke-dasharray="10 10"
               fill="none">
            </path>
         </svg>
-        <img src="https://media1.tenor.com/m/ty4Eyt9Mp1gAAAAC/mars-planet.gif" alt="Descripción del GIF" width="300">
+
+        <!-- Imagen del Planeta Marte-->
+        <img src="https://media1.tenor.com/m/ty4Eyt9Mp1gAAAAC/mars-planet.gif" alt="Marte" width="300" class="Marte">
     </div>
 
+    <!--Controla la apertura y cierre del panle inferior-->
+    <input type="checkbox id=sheet-toggle">
+
+    <!--Contiene la informacion principal del viaje-->
+    <div class="travel-card">
+
+        <!-- Barra para expandir o contraer el panel-->
+         <label for="sheet-toggle"
+         class="abrir-sheet">
+         </label>
+    </div>
+    <!--Informacion de la nave seleccionada -->
+    <div class="nave-principal">
+        <img src="../img/CrewDragon.png" alt="Crew Dragon"  class="nave">
+
+        <h2>
+            Crew Dragon
+        </h2>
+
+        <h3>
+            48.5 Tokens
+        </h3>
+
+    <!--Proximo Lanzamiento-->
+    <p>
+        Next Lounch
+    </p>
+
+    <p>
+        <div class="contenedor-fecha">
+        <label for="evento">Selecciona fecha y hora:</label>
+        <input type="datetime-local" id="evento" name="evento">
+    </div>
+    </p>
+    
+     <h4>
+        Tiempo Estimado del Viaje
+
+    </h4>
+     <p>
+        18 Days, 13 Hours
+     </p>
+
+</div>
 
         
+    
+
+    <!-- LISTA DE NAVES DISPONIBLES-->
+     <div class="lista-naves">
+        <div class="nave-item">
+            <img src="../img/CrewDragon.png">
+            <span>
+                CrewDragon
+            </span>
+
+            <strong>
+                48.5
+            </strong>
+     
+        </div>
+        
+    <!-- Nave 2 Disponible -->
+     <div class="nave-item">
+        <img src="../img/Starliner.png">
+
+        <span>
+            Starliner
+        </span>
+
+        <strong>
+            52.0 Tokens
+        </strong>
+    </div>
+
+    <!-- Nave 3 Disponible -->
+     <div class="nave-item">
+        <img src="../img/dreamchaser.png">
+
+    
