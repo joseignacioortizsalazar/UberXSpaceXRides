@@ -1,6 +1,6 @@
 @media screen and (min-width: 1024px) {
     .fondo {
-        background-image: url('../img/fondopc.jpeg');
+        background: rgb(0, 22, 33);
         background-size: cover;
         background-repeat: no-repeat;
     }
@@ -332,6 +332,12 @@ input {
     }
 }
 
+@keyframes aparecer {
+    100% {
+        opacity: 1;
+    }
+}
+
 /* pantalla flotante en home */
 
 .flotante {
@@ -384,7 +390,8 @@ input[type="date"] {
     position: fixed;
     top: 0%;
     color: white;
-    margin: 20px
+    margin: 20px;
+    border-radius: 50%;
 }
 
 .planetas {
@@ -414,9 +421,175 @@ input[type="date"] {
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 72vh;
+    padding: 30px 20px 130px;
 }
 
 /*tierra y marte*/
+.travel-map {
+    position: relative;
+    width: min(760px, 100%);
+    aspect-ratio: 760 / 500;
+}
+
+.orbit-line {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.orbit-line path {
+    fill: none;
+    stroke: rgba(235, 240, 255, 0.88);
+    stroke-width: 5;
+    stroke-linecap: round;
+    stroke-dasharray: 14 18;
+    filter: drop-shadow(0 0 8px rgba(60, 135, 255, 0.9));
+    animation: rutaEspacial 2.2s linear infinite;
+}
+
+.planet-stop {
+    position: absolute;
+    display: block;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    transform-origin: center;
+    transition: transform 0.35s ease;
+}
+
+.earth-stop {
+    left: 6%;
+    bottom: 4%;
+    width: 230px;
+}
+
+.mars-stop {
+    right: 6%;
+    top: 0;
+    width: 205px;
+}
+
+.planet-img {
+    width: 100%;
+    display: block;
+    filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.24));
+    animation: girarPlaneta 18s linear infinite;
+    transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.mars-img {
+    animation-duration: 15s;
+}
+
+.planet-label {
+    position: absolute;
+    min-width: 200px;
+    padding: 20px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 0;
+    background: rgba(15, 21, 32, 0.9);
+    border: 1px solid rgba(130, 160, 220, 0.35);
+    border-radius: 28px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 20px 34px rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.earth-label {
+    left: 58%;
+    bottom: 3%;
+}
+
+.mars-label {
+    right: -52%;
+    bottom: 1%;
+}
+
+.planet-label b {
+    font-size: 42px;
+    line-height: 1;
+}
+
+.planet-stop:hover .planet-img {
+    filter: drop-shadow(0 0 28px rgba(255, 255, 255, 0.48));
+}
+
+.planet-stop:hover {
+    transform: scale(1.05);
+}
+
+.planet-stop:hover .planet-label {
+    color: rgb(220, 238, 255);
+    background: rgba(26, 35, 52, 0.96);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 24px 42px rgba(0, 0, 0, 0.55), 0 0 24px rgba(91, 151, 255, 0.28);
+    transform: translateY(-6px);
+}
+
+@keyframes girarPlaneta {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rutaEspacial {
+    100% {
+        stroke-dashoffset: -64;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .travel-map {
+        width: min(420px, 100%);
+        aspect-ratio: 420 / 560;
+    }
+
+    .orbit-line {
+        transform: rotate(12deg) scale(0.82);
+        transform-origin: center;
+    }
+
+    .earth-stop {
+        width: 165px;
+        left: 0;
+        bottom: 12%;
+    }
+
+    .mars-stop {
+        width: 145px;
+        right: 2%;
+        top: 7%;
+    }
+
+    .planet-label {
+        min-width: 140px;
+        padding: 15px 20px;
+        font-size: 25px;
+        border-radius: 22px;
+    }
+
+    .planet-label b {
+        font-size: 30px;
+    }
+
+    .earth-label {
+        left: 45%;
+        bottom: -1%;
+    }
+
+    .mars-label {
+        right: -42%;
+        bottom: -2%;
+    }
+}
 
 /*menu de viajes */
 .menu {
@@ -518,79 +691,226 @@ input[type="date"] {
     border-radius: 10px;
     cursor: pointer;
 }
-
-.payment-panel {
-    width: 350px;
-    margin: 20px auto;
+/*pagina payment */
+.pago{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
-    background: #1d2433;
-    border-radius: 10px;
+    box-sizing: border-box;
+}
+.payment-card{
+    width: min(400px, 100%);
+    height: auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50px ;
+    padding: 30px;
+    box-sizing: border-box;
+    display: block;
+
+    }
+.logos{
+    width: 50px;
+
+}
+.textopago{
+    position: relative;
+    bottom: 56px;
+    left: 60px;
+}
+.borrarpago{
+    position: relative;
+    bottom:100px;
+    left: 270px
+}
+.expirapago{
+    position: relative;
+    bottom: 80px;
+    left: 60px;
+}
+.default{
+    position:relative;
+    bottom: 145px;
+    left: 190px;
+    color: rgb(68, 32, 4);
+    text-align: center;
+    width: 70px;
+    background: rgb(223, 194, 7);
+    border-radius: 20px;
+}
+.items:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    margin: 10px 0;
+    border-radius: 15px;
+    cursor: pointer;
+    height: 110px;
+}
+.items{
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    margin: 10px 0;
+    border-radius: 15px;
+    cursor: pointer;
+    height: 110px;
+}
+.buscador{
+    background: rgba(255, 255, 255, 0.1);
+    display: block;
+    justify-content: center;
+    align-items: center;
 }
 
-.payment-header {
+/* pagina receipt */
+.receipt {
+    width: min(430px, calc(100% - 32px));
+    margin: 40px auto;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.receipt-header {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 18px;
+    margin-bottom: 18px;
 }
 
-.payment-header h1 {
+.receipt-back {
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     color: white;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+}
+
+.receipt-title,
+.receipt-subtitle,
+.receipt-price {
     margin: 0;
-    font-size: 28px;
 }
 
-.payment-search {
-    display: flex;
-    border: 1px solid gray;
-    border-radius: 8px;
-    padding: 8px;
-    margin: 20px 0;
+.receipt-title {
+    font-size: 30px;
 }
 
-.payment-search input {
-    border: none;
-    background: none;
-    color: white;
+.receipt-card {
+    padding: 26px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 28px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(8px);
+}
+
+.receipt-price {
+    text-align: center;
+    font-size: 42px;
+}
+
+.receipt-date,
+.receipt-item p {
+    text-align: center;
+}
+
+.receipt-card hr {
     width: 100%;
-    outline: none;
+    margin: 22px 0;
 }
 
-.payment-card {
+.receipt-subtitle {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.receipt-flight {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    gap: 14px;
+}
+
+.flight-box {
+    flex: 1;
+    min-height: 140px;
+    padding: 16px 12px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+}
+
+.flight-box h4,
+.flight-box p {
+    text-align: center;
+    margin: 8px 0;
+}
+
+.flight-center {
     color: white;
-    border: none;
-    background: none;
+    font-size: 24px;
 }
 
-.payment-card-left {
+.receipt-row {
     display: flex;
-    align-items: center;
-    gap: 15px;
+    justify-content: space-between;
+    gap: 14px;
+    color: rgb(230, 230, 230);
+    font-size: 18px;
+    margin: 12px 0;
 }
 
-.payment-logo {
-    width: 25px;
-    height: 18px;
-    background: white;
+.receipt-row.total {
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
 }
 
-.payment-default {
-    background: gold;
-    color: black;
-    padding: 3px 8px;
-    border-radius: 10px;
-    font-size: 12px;
+.receipt-footer {
+    display: flex;
+    justify-content: space-around;
+    gap: 14px;
+    margin-top: 18px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 22px;
 }
 
-.payment-delete {
-    color: red;
+.receipt-item {
+    color: white;
+    text-align: center;
 }
 
-.payment-add-button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 20px;
+.fa-arrow-left::before {
+    content: "<";
 }
+
+.fa-plane-departure::before {
+    content: "->";
+}
+
+.fa-arrow-right::before {
+    content: ">";
+}
+
+.fa-plane-arrival::before {
+    content: "<-";
+}
+
+.fa-share-nodes::before {
+    content: "🔗";
+}
+
+.fa-download::before {
+    content: "📥";
+}
+
+.fa-tag::before {
+    content: "☰";
+}
+/*recibo+*/

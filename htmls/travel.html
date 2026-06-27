@@ -22,7 +22,21 @@
 
     <!-- muestra de planetas y ruta espacial-->
     <div class="viajerr">
-        <img src="../img/descarga.png" alt="Pantalla de carga">
+        <section class="travel-map" aria-label="Ruta de viaje de la Tierra a Marte">
+            <svg class="orbit-line" viewBox="0 0 720 420" aria-hidden="true">
+                <path d="M165 315 C235 120 420 65 575 112" />
+            </svg>
+
+            <label for="abrirMenu" class="planet-stop earth-stop">
+                <img src="../img/tierra.png" class="planet-img earth-img" alt="Planeta Tierra">
+                <span class="planet-label earth-label">Earth <b>&gt;</b></span>
+            </label>
+
+            <label for="abrirMenu" class="planet-stop mars-stop">
+                <img src="../img/ruedamarte.png" class="planet-img mars-img" alt="Planeta Marte">
+                <span class="planet-label mars-label">Mars <b>&gt;</b></span>
+            </label>
+        </section>
     </div>
     <!--desplegable-->
     <input type="radio" name="menu" id="lista" checked hidden>
