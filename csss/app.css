@@ -914,3 +914,257 @@ input[type="date"] {
     content: "☰";
 }
 /*recibo+*/
+
+/* responsive */
+html,
+body {
+    min-height: 100%;
+    margin: 0;
+}
+
+.fondo,
+.fondoestrellas,
+.fondops2 {
+    min-height: 100vh;
+    background-position: center;
+    background-color: rgb(0, 22, 33);
+}
+
+@media screen and (max-width: 1023px) {
+    .fondo {
+        background: rgb(0, 22, 33);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .fondoestrellas {
+        background-image: url('../img/fondoestrellas.jpeg');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .fondops2 {
+        background-image: url('../img/fondops2.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .card {
+        width: min(850px, calc(100% - 32px));
+        box-sizing: border-box;
+    }
+
+    .astronautaa {
+        width: min(450px, 48%);
+        height: auto;
+    }
+
+    .viajar-contenedor {
+        width: min(500px, calc(100% - 32px));
+        gap: clamp(18px, 7vw, 80px);
+        box-sizing: border-box;
+    }
+
+    .viajar {
+        width: clamp(110px, 24vw, 200px);
+        height: clamp(110px, 24vw, 200px);
+    }
+
+    .flotante {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    hr {
+        width: calc(100% - 40px);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .menu {
+        width: min(500px, calc(100% - 24px));
+        box-sizing: border-box;
+    }
+
+    .naves {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    h1 {
+        font-size: clamp(24px, 8vw, 30px);
+    }
+
+    h2 {
+        font-size: clamp(24px, 8vw, 30px);
+    }
+
+    h3 {
+        font-size: clamp(24px, 8vw, 35px);
+    }
+
+    h4 {
+        font-size: clamp(24px, 8vw, 30px);
+    }
+
+    p {
+        font-size: clamp(16px, 5vw, 20px);
+    }
+
+    .bienvenido {
+        margin-top: 60px;
+        padding: 0 16px;
+    }
+
+    .Inicio {
+        width: calc(100% - 48px);
+        max-width: 300px;
+        margin: 60px auto;
+        box-sizing: border-box;
+    }
+
+    input,
+    .boton {
+        width: 100%;
+        max-width: 275px;
+        box-sizing: border-box;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .header {
+        padding: 10px 12px 0;
+        box-sizing: border-box;
+    }
+
+    .avatar {
+        width: clamp(70px, 22vw, 100px);
+        height: clamp(70px, 22vw, 100px);
+    }
+
+    .nombreavatar {
+        font-size: clamp(26px, 9vw, 40px);
+    }
+
+    .card {
+        min-height: 300px;
+        height: auto;
+        padding: 15px;
+        overflow: hidden;
+    }
+
+    .card-text {
+        max-width: 58%;
+    }
+
+    .astronautaa {
+        width: 46%;
+        min-width: 145px;
+    }
+
+    .viajar-contenedor {
+        gap: clamp(8px, 3vw, 18px);
+        padding: 10px;
+    }
+
+    .viajar {
+        width: clamp(88px, 28vw, 120px);
+        height: clamp(88px, 28vw, 120px);
+    }
+
+    .cardwhere {
+        width: calc(100% - 48px);
+        max-width: 300px;
+        box-sizing: border-box;
+    }
+
+    .contenido-desplegable {
+        right: 0;
+    }
+
+    .planeta-item {
+        gap: 16px;
+        padding-right: 16px;
+    }
+
+    .planeta-item img {
+        max-width: 32vw;
+        height: auto;
+    }
+
+    .atras {
+        font-size: 40px;
+        width: 50px;
+        margin: 12px;
+    }
+
+    .regresar {
+        width: 42px;
+        height: 42px;
+        padding: 14px;
+    }
+
+    .payment-card {
+        padding: 24px 18px;
+        border-radius: 36px;
+    }
+
+    .textopago {
+        left: 58px;
+        font-size: clamp(20px, 6vw, 30px);
+    }
+
+    .borrarpago {
+        left: calc(100% - 72px);
+    }
+
+    .default {
+        left: calc(100% - 115px);
+    }
+
+    .receipt-card {
+        padding: 20px;
+    }
+
+    .receipt-flight {
+        gap: 8px;
+    }
+
+    .flight-box {
+        padding: 14px 8px;
+    }
+
+    .receipt-row {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .card-text {
+        max-width: 62%;
+    }
+
+    .astronautaa {
+        min-width: 120px;
+    }
+
+    .planet-label {
+        min-width: 118px;
+        padding: 12px 14px;
+        font-size: 22px;
+    }
+
+    .planet-label b {
+        font-size: 26px;
+    }
+
+    .earth-label {
+        left: 36%;
+    }
+
+    .mars-label {
+        right: -28%;
+    }
+}
